@@ -5,43 +5,48 @@
 // алгоритма. При решении не рекомендуется пользоваться коллекциями, 
 // лучше обойтись исключительно массивами.
 
-Console.Write("Введите количество элементов массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
-string[] stringArray = new string[n];
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Введите количество элементов массива: ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        string[] stringArray = new string[n];
 
-void Array(string[] stringArray)
-{
-    for (int i = 0; i < stringArray.Length; i++)
-    {
-        Console.WriteLine($"Введите {i + 1} элемент массива");
-        stringArray[i] = Console.ReadLine();
-    }
-}
-string[] NewArray(string[] stringArray)
-{
-    int n = 0;
-    for (int i = 0; i < stringArray.Length; i++)
-    {
-        if (stringArray[i].Length <= 3)
-            n++;
-    }
-    string[] newArray = new string[n];
-    int j = 0;
-    for (int i = 0; i < stringArray.Length; i++)
-    {
-        if (stringArray[i].Length <= 3)
+        void Array(string[] stringArray)
         {
-            newArray[j] = stringArray[i];
-            j++;
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                Console.WriteLine($"Введите {i + 1} элемент массива");
+                stringArray[i] = Console.ReadLine()!;
+            }
         }
+        string[] NewArray(string[] stringArray)
+        {
+            int n = 0;
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                if (stringArray[i].Length <= 3)
+                    n++;
+            }
+            string[] newArray = new string[n];
+            int j = 0;
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                if (stringArray[i].Length <= 3)
+                {
+                    newArray[j] = stringArray[i];
+                    j++;
+                }
+            }
+            return newArray;
+        }
+
+        Array(stringArray);
+        Console.Write($"Исходник:[{string.Join(',', stringArray)}]");
+        Console.WriteLine();
+
+        NewArray(stringArray);
+        Console.Write($"Новый массив:[{string.Join(',', NewArray(stringArray))}]");
     }
-    return newArray;
 }
-
-Array(stringArray);
-Console.Write($"Исходник:[{string.Join(',', stringArray)}]");
-Console.WriteLine();
-
-NewArray(stringArray);
-Console.Write($"Новый массив:[{string.Join(',', NewArray(stringArray))}]");
-
