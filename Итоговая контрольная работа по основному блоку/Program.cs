@@ -38,3 +38,10 @@ string[] NewArray(string[] stringArray)
     return newArray;
 }
 
+Array(stringArray);
+Console.Write($"Исходник:[{string.Join(',', stringArray)}]");
+Console.WriteLine();
+
+NewArray(stringArray);
+Console.Write($"Новый массив:[{string.Join(',', NewArray(stringArray))}]");
+
