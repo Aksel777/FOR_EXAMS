@@ -5,10 +5,6 @@
 // алгоритма. При решении не рекомендуется пользоваться коллекциями, 
 // лучше обойтись исключительно массивами.
 
-internal class Program
-{
-    private static void Main(string[] args)
-    {
         Console.Write("Введите количество элементов массива: ");
         int n = Convert.ToInt32(Console.ReadLine());
         string[] stringArray = new string[n];
@@ -48,5 +44,4 @@ internal class Program
 
         NewArray(stringArray);
         Console.Write($"Новый массив:[{string.Join(',', NewArray(stringArray))}]");
-    }
-}
+    
